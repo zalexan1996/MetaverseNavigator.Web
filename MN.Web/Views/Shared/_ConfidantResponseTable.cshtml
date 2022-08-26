@@ -1,0 +1,107 @@
+@model AddConfidantResponseViewModel;
+
+@{
+    // Prefills the AddResponse form values to follow along with the previous edits. 
+    // In other words, if I added Rank 5 Response 3, it prefills the fields to say Rank 5 Response 3.
+    // If there are no existing responses, it'll default to Rank 1 Response 1.
+    int furthestRankIndex = Model.ExistingResponses.OrderBy(r => r.Rank).ThenBy(r => r.ResponseOrder).LastOrDefault()?.Rank ?? 1;
+    int furthestResponseIndex = Model.ExistingResponses.OrderBy(r => r.Rank).ThenBy(r => r.ResponseOrder).LastOrDefault(r => r.Rank == furthestRankIndex)?.ResponseOrder + 1 ?? 1;
+}
+
+@if(User.IsInRole("Admin"))
+{
+    <form asp-controller="Confidant" asp-action="AddConfidantResponse" method="post">
+        <td>
+            <label asp-for="Rank">Rank</label>
+            <input id="rankField" type="number" asp-for="Rank" value="@furthestRankIndex">
+            <span asp-validation-for="Rank" class="text-danger"></span>
+        </td>
+        <td>
+            <label asp-for="Order">Order</label>
+            <input id="orderField" type="number" asp-for="Order" value="@furthestResponseIndex">
+            <span asp-validation-for="Order" class="text-danger"></span>
+        </td>
+        <td>
+            <label asp-for="Response">Response</label>
+            <input type="string" asp-for="Response">
+            <span asp-validation-for="Response" class="text-danger"></span>
+        </td>
+        <td>
+            <input hidden="true" type="number" asp-for="ConfidantId" value="@Model.ConfidantId">
+        </td>
+        <td>
+            <input type="submit" class="btn btn-primary" value="+">
+        </td>
+    </form>
+
+    <script>
+        document.getElementById('rankField').addEventListener('change', (event) => {
+            document.getElementById("orderField").value = "1"
+        })
+    </script>
+}
+
+@if(Model.ExistingResponses.Count() > 0)
+{
+    <table class="table table-sm table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Responses</th>
+                <th>Rank Benefit</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(int i = 1; i <= 10; i++)
+            {
+                var rankResponses = Model.ExistingResponses.Where(r => r.Rank == i).OrderBy(r=>r.ResponseOrder).ToList();
+                @if(rankResponses.Count > 0)
+                {
+                    <tr>
+                        <td class="col-1">@i</td>
+                        <td class="col-5">
+                            <ul>
+                                @foreach (var response in rankResponses)
+                                {
+                                <li>
+                                    <div class="d-flex row">
+                                        <div class="col-9">
+                                            @response.ResponseText
+                                        </div>
+                                        @if (User.IsInRole("Admin"))
+                                        {
+                                            <div class="col-1">
+                                                <form asp-route-confidantId="@response.ConfidantId" asp-route-responseId="@response.Id" asp-controller="Confidant" asp-action="DeleteConfidantResponse" method="post">
+                                                    <input type="submit" class="btn btn-danger" value="X">
+                                                </form>
+                                            </div>
+                                        }
+                                    </div>
+                                </li>
+                                }
+                            </ul>
+                        </td>
+                        <td col-5>
+
+                            @{
+                                var myBenefits = Model.ConfidantBenefits.Where(b => b.RankUnlocked == i);
+                            }
+
+                            @foreach(var myBenefit in myBenefits)
+                            {
+                                <p><b>@myBenefit.AbilityName</b></p>
+                                <p>@myBenefit.Description</p>
+                                <p>@myBenefit.AdditionalRequirement</p>
+                                <br />
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>There are no Confidant Responses to display.</p>
+}

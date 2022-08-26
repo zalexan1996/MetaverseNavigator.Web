@@ -1,0 +1,84 @@
+@using MN.Domain;
+@model PersonaViewModel
+
+<h3>Personas</h3>
+
+
+<div>
+    <div class="d-flex flex-row">
+        <form class="d-flex justify-content-start text-nowrap" asp-controller="persona" asp-action="Index" method="get">
+            <p class="column form-text mx-1">Filter Confidant: </p>
+            <select class="form-control column mx-1" name="confidantFilter">
+                @foreach(var confidant in @Model.Confidants)
+                {
+                    
+                    @if(Model.ConfidantFilter == confidant) 
+                    {
+                        <option selected>@confidant</option> 
+                    } 
+                    else{
+                        <option>@confidant</option> 
+                    }
+                }
+            </select>
+            <input class="btn btn-secondary mx-3" type="submit" value="Filter">
+        </form>
+    </div>
+    <table class="table table-sm table-bordered table-striped mt-4">
+        <tr>
+            <th>Persona</th>
+            <th>Confidant</th>
+            <th>Starting Level</th>
+            @if (User.IsInRole("Admin"))
+            {
+                <th>Action</th>
+            }
+            
+        </tr>
+
+        
+        @if (User.IsInRole("Admin"))
+        {
+            <tr>
+                <form asp-action="AddPersona" asp-controller="Persona" method="post" asp-route-confidantFilter="@Model.ConfidantFilter">
+                    <td><input class="form-control" type="text" name="personaName"></td>
+                    <td>
+                        <select class="form-control" name="confidantName">
+                            @foreach(var confidant in @Model.Confidants)
+                            {
+
+                                @if(@Model.ConfidantFilter == confidant) 
+                                {
+                                    <option selected>@confidant</option> 
+                                } 
+                                else{
+                                    <option>@confidant</option> 
+                                }
+                            }
+                        </select>
+                    </td>
+                    <td><input class="form-control" type="number" name="startingLevel" value="1" aria-valuemin="1" aria-valuemax="99"></td>
+                    <td><input type="submit" value="ADD" class="form-control btn btn-success"></td>
+                </form>
+            </tr>
+        }
+        @foreach (var persona in @Model.Personas)
+        {
+            <tr>
+                <td>@persona.Name</td>
+                <td>@persona.Confidant.Name</td>
+                <td>@persona.StartingLevel</td>
+                @if (User.IsInRole("Admin"))
+                {
+                <td>
+                    <form asp-action="RemovePersona" asp-controller="Persona" asp-route-confidantFilter="@Model.ConfidantFilter" method="post">
+                        <input name="personaName" value="@persona.Name" hidden="true">
+                        <input type="submit" value="DELETE" class="form-control btn btn-danger">
+                    </form>
+                </td>
+                }
+            </tr>
+        }
+        
+    </table>
+</div>

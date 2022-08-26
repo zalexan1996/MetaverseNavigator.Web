@@ -1,0 +1,43 @@
+@model ConfidantGuideViewModel
+
+<div class="d-flex row">
+
+    <div class="col-2 sidebar" style="background: #ef2132; color: white; border: 2px solid black;">
+        <div class="row pt-2 pb-2 d-flex btn-group bg-dark">
+            <div class="col-6 justify-content-start">
+                <a asp-controller="Confidant" asp-action="ConfidantGuide" asp-route-id="@Model.PreviousConfidant?.Id" class="btn btn-light p-2 w-100">Previous</a>
+            </div>
+            <div class="col-6 justify-content-end">
+                <a asp-controller="Confidant" asp-action="ConfidantGuide" asp-route-id="@Model.NextConfidant?.Id" class="btn btn-light p-2 w-100">Next</a>
+            </div>
+        </div>
+        <div class="row align-items-end justify-content-end">
+            <img src="@(String.IsNullOrEmpty(Model?.Confidant?.CardUrl) ? "/image/metaverse_navigator.png" : Model.Confidant.CardUrl)" style="max-width:100%; min-width: 100%; max-height: 100%; border: 2px solid black" />
+            <h2>@Model?.Confidant?.Name</h2>
+            <h3>@Model?.Confidant?.GameCharacter?.Name</h3>
+            <h5>Occupation: </h5>
+            <h5>Age: </h5>
+        </div>
+
+
+    </div>
+
+    <div class="col-6">
+
+        <div>
+            <h3> Dialogue Responses </h3>
+            <partial name="_ConfidantResponseTable" model="@Model.AddConfidantResponseViewModel" />
+        </div>
+
+
+
+        <h3> Confidant Benefits </h3>
+        <partial name="_ConfidantBenefitTable" model="@Model.AddConfidantBenefitViewModel" />
+
+
+
+        <div>
+            <h3> Best Gifts </h3>
+        </div>
+    </div>
+</div>

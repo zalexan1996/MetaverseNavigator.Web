@@ -1,0 +1,49 @@
+@model CharacterViewModel
+
+<p>This is where you can see the list of characters</p>
+
+@if (User.IsInRole("Admin"))
+{
+    <p>Click on the Edit or New buttons to alter the db.</p>
+}
+
+
+<table class="table table-sm table-striped table-bordered">
+
+    <tr>
+        <th>Name</th>
+        <th>Is Battle Character?</th>
+        <th>Associated Arcana</th>
+        @if(User.IsInRole("Admin")) { <th>Actions</th>}
+    </tr>
+    @foreach(var bundle in Model.CharacterBundles!)
+    {
+        <tr>
+            <td>
+                @bundle.GameCharacter?.Name
+            </td>
+            <td>
+                @((bundle.BattleCharacter == null)? "No": "Yes")
+            </td>
+            <td>
+                @((bundle.Confidant == null) ? "N/A" : bundle.Confidant.Name)
+            </td>
+            @if (User.IsInRole("Admin"))
+            {
+                <td>
+                    <form asp-controller="Character" asp-action="EditCharacter" method="get" asp-route-id="@bundle.GameCharacter.Id">
+                        <input type="submit" class="btn btn-warning" value="EDIT">
+                    </form>
+                    <form asp-action="DeleteCharacter" asp-controller="Character" method="post">
+                        <input hidden name="gameCharacterId" type="number" value="@bundle.GameCharacter.Id">
+                        <input type="submit" class="btn btn-danger" value="DELETE">
+                    </form>
+                </td>
+            }
+        </tr>
+    }
+</table>
+@if (User.IsInRole("Admin"))
+{
+    <a class="btn btn-success" asp-action="AddCharacter" asp-controller="Character">Add</a>
+}

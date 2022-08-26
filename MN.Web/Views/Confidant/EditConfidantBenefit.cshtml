@@ -1,0 +1,48 @@
+@model MN.Domain.ConfidantBenefit
+
+
+@if (User.IsInRole("Admin"))
+{
+    <h3>Edit Confidant Benefit</h3>
+    <form asp-controller="Confidant" asp-action="EditConfidantBenefit" method="post">
+        <input hidden="true" asp-for="Id" value="@Model.Id" type="number">
+        <input hidden="true" asp-for="ConfidantId" value="@Model.ConfidantId" type="number">
+        <div class="row">
+            <div class="form-group col-6">
+                <label asp-for="AbilityName" class="form-label">Ability Name</label>
+                <input class="form-control" asp-for="AbilityName" type="text" value="@Model.AbilityName">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="form-group col-6">
+                <label asp-for="RankUnlocked" class="form-label">Rank Unlocked</label>
+                <input class="form-control" asp-for="RankUnlocked" type="number" value="@Model.RankUnlocked">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="form-group col-6">
+                <label asp-for="Description" class="form-label">Description</label>
+                <input class="form-control" asp-for="Description" type="string" value="@Model.Description">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="form-group col-6">
+                <label asp-for="AdditionalRequirement" class="form-label">Additional Requirement</label>
+                <textarea class="form-control" asp-for="AdditionalRequirement" rows="4" value="@Model.AdditionalRequirement"></textarea>
+            </div>
+        </div>
+        
+        <div class="d-flex row justify-content-center align-items-center">
+            <div class="col-6 m-1">
+                <input type="submit" class="btn btn-primary" value="Edit"/>
+            </div>
+            <div class="col-6 m-1">
+                <a class="btn btn-warning" asp-controller="Confidant" asp-action="ConfidantGuide" asp-route-id="@Model.Id">Cancel</a>
+            </div>
+            
+        </div>
+    </form>
+}

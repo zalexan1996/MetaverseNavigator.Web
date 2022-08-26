@@ -1,0 +1,68 @@
+﻿@inject MN.Data.Services.IPersonaService personaService
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Metaverse Navigator</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MN.Web.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <main role="main" class="pb-3 my-9">
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+
+            <!-- Sidebar -->
+                <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark sidebar" id="sidebar" style="width: 280px;">
+                <div class="sidebar-header">
+                    <h4>Metaverse Navigator</h4>
+                </div>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    @if(User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item"><a asp-controller="Home" asp-action="Index" class="nav-link text-white">Home</a></li>
+                        <li class="active nav-item">
+                            <a href="#confidantSubmenu" data-bs-toggle="collapse" class="dropdown-toggle nav-link text-white">Confidants</a>
+                            <ul class="collapse list-unstyled mx-4" id="confidantSubmenu">
+                                <li><a asp-action="AddConfidant" asp-controller="Confidant" class="nav-link text-white">Confidant List</a></li>
+                                <li>
+                                    <a href="#confidantGuideSubmenu" data-bs-toggle="collapse" class="dropdown-toggle nav-link text-white">Confidant Guides</a>
+                                    <ul class="collapse list-unstyled mx-4" id="confidantGuideSubmenu">
+                                        @foreach(var confidant in personaService.ConfidantRepository.List())
+                                        {
+                                            <li><a asp-controller="Confidant" asp-action="ConfidantGuide" asp-route-id="@confidant.Id" class="nav-link text-white">@confidant.Name</a></li>
+                                        }
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a asp-action="AddWeaponType" asp-controller="Weapons" class="nav-link text-white">Weapon Types</a></li>
+                        <li class="nav-item"><a asp-action="Index" asp-controller="Persona" class="nav-link text-white">Personas</a></li>
+                        <li class="nav-item"><a asp-action="Index" asp-controller="Character" class="nav-link text-white">Characters</a></li>
+                        
+                    }
+                    <partial name="_LoginPartial" />
+                </ul>
+            </div>
+
+            <!-- Content -->
+            <div id="content" class="col">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    </main>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - MN.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

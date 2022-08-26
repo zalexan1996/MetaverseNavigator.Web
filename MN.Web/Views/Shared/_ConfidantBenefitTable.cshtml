@@ -1,0 +1,52 @@
+@model AddConfidantBenefitViewModel
+
+<table class="table table-sm table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Ability Name</th>
+            <th>Rank Unlocked</th>
+            <th>Description</th>
+            <th>Additional Requirements</th>
+            @if (User.IsInRole("Admin"))
+            {
+                <th>Action</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @if (User.IsInRole("Admin"))
+            {
+                <form asp-controller="Confidant" asp-action="AddConfidantBenefit" method="post">
+                    <td><input asp-for="AbilityName" type="text"></td>
+                    <td><input asp-for="RankUnlocked" type="number" min="0" max="11" value="1"></td>
+                    <td><input asp-for="Description" type="text"></td>
+                    <td><input asp-for="AdditionalRequirement" type="text"></td>
+                        <td><input type="submit" class="btn btn-primary" value="Add"></td>
+                    <input hidden="true" asp-for="ConfidantId" type="text" value="@Model?.ConfidantId">
+                </form>
+            }
+        </tr>
+
+        @foreach(var benefit in Model?.ExistingBenefits ?? new List<ConfidantBenefit>())
+        {
+            <tr>
+                <td>@benefit.AbilityName</td>
+                <td>@benefit.RankUnlocked</td>
+                <td>@benefit.Description</td>
+                <td>@benefit.AdditionalRequirement</td>
+                @if (User.IsInRole("Admin"))
+                {
+                    <td>
+                        <form asp-route-id="@benefit.Id" asp-controller="Confidant" asp-action="EditConfidantBenefit" method="get">
+                            <input type="submit" class="btn btn-warning" value="EDIT">
+                        </form>
+                        <form asp-route-confidantId="@benefit.ConfidantId" asp-route-abilityName="@benefit.AbilityName" asp-controller="Confidant" asp-action="DeleteConfidantBenefit" method="post">
+                            <input type="submit" class="btn btn-danger" value="DELETE">
+                        </form>
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,34 @@
+@model MN.Domain.ConfidantBenefit
+@if (User.IsInRole("Admin"))
+{
+    <h3>Edit Confidant Benefit</h3>
+    <form asp-controller="Confidant" asp-action="EditConfidantBenefit" method="post">
+        <input hidden="true" asp-for="Id" value="@Model.Id" type="number">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label asp-for="AbilityName" class="form-label">Ability Name</label>
+                    <input asp-for="AbilityName" type="text" value="@Model.AbilityName">
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="RankUnlocked" class="form-label">Rank Unlocked</label>
+                    <input asp-for="RankUnlocked" type="number" value="@Model.RankUnlocked">
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="Description" class="form-label">Description</label>
+                    <input asp-for="Description" type="string" value="@Model.Description">
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="AdditionalRequirement" class="form-label">Additional Requirement</label>
+                    <input asp-for="AdditionalRequirement" type="string" value="@Model.AdditionalRequirement">
+                </div>
+
+                <input type="submit" class="btn btn-primary" value="Edit"/>
+                <a class="btn btn-warning" asp-action="ConfidantGuide" asp-controller="Confidant" asp-route-id="@Model.ConfidantId">Cancel</a>
+            </div>
+        </div>
+    </form>
+}

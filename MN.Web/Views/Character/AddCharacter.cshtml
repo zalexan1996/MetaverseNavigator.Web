@@ -1,0 +1,122 @@
+@model AddCharacterViewModel
+
+
+<p>
+This is the form for adding a new character.
+</p>
+<p>
+The add button sends the fields to the db to create it and then redirects you to the Index action.
+</p>
+
+<br/>
+<form asp-action="AddCharacter" asp-controller="Character" method="post">
+    <div class="row mb-3">
+        <div class="col-3">
+            <label asp-for="Name" class="form-label">Name</label>
+            <input asp-for="Name" class="form-control" type="text" placeholder="Name">
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+        <div class="col-1">
+            <label asp-for="Age" class="form-label">Age</label>
+            <input asp-for="Age" class="form-control" type="number" placeholder="Age">
+            <span class="text-danger" asp-validation-for="Age"></span>
+        </div>
+        <div class="col-4">
+            <label asp-for="Occupation" class="form-label">Occupation</label>
+            <input asp-for="Occupation" class="form-control" type="text" placeholder="Occupation">
+            <span class="text-danger" asp-validation-for="Occupation"></span>
+        </div>
+    </div>
+
+    <div class="row mb-6">
+        <div class="col-5">
+
+            <input asp-for="IsBattleCharacter" type="checkbox" class="mb-3" onchange="ToggleDisabledByClassName('battle-character-field')">
+                <label asp-for="IsBattleCharacter" class="m-2">Is Battle Character</label>
+            </input>
+
+
+            <div class="col-8">
+                <label asp-for="Codename" class="form-label">Codename</label>
+                <input asp-for="Codename" class="form-control battle-character-field" type="text" placeholder="Codename" disabled="@(!Model.IsBattleCharacter ? "disabled" : null)">
+            <span class="text-danger" asp-validation-for="Codename"></span>
+            </div>
+
+
+            <div class="row">
+                <div class="col-4">
+                    <label asp-for="StartingPersonaName" class="form-label">Starting Persona</label>
+                    <input asp-for="StartingPersonaName" class="form-control battle-character-field" list="personaList" placeholder="Search..." disabled="@(!Model.IsBattleCharacter ? "disabled" : null)">
+            <span class="text-danger" asp-validation-for="StartingPersonaName"></span>
+                </div>
+                <div class="col-4">
+                    <label asp-for="AwakenedPersonaName" class="form-label">Awakened Persona</label>
+                    <input asp-for="AwakenedPersonaName" class="form-control battle-character-field" list="personaList" placeholder="Search..." disabled="@(!Model.IsBattleCharacter ? "disabled" : null)">
+            <span class="text-danger" asp-validation-for="AwakenedPersonaName"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label asp-for="MeleeWeaponTypeName" class="form-label">Melee Weapon Type</label>
+                    <select asp-for="MeleeWeaponTypeName" class="form-control battle-character-field" disabled="@(!Model.IsBattleCharacter ? "disabled" : null)">
+                        @foreach(var melee in Model.MeleeWeaponTypes)
+                        {
+                            <option>@melee</option>
+                        }
+                    </select>
+                    <span class="text-danger" asp-validation-for="MeleeWeaponTypeName"></span>
+                </div>
+                <div class="col-4">
+                    <label asp-for="RangedWeaponTypeName" class="form-label">Ranged Weapon Type</label>
+                    <select asp-for="RangedWeaponTypeName" class="form-control battle-character-field" disabled="@(!Model.IsBattleCharacter ? "disabled" : null)">
+                        @foreach(var ranged in Model.RangedWeaponTypes)
+                        {
+                            <option>@ranged</option>
+                        }
+                    </select>
+                    <span class="text-danger" asp-validation-for="RangedWeaponTypeName"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <input asp-for="IsConfidantCharacter" type="checkbox" class="mb-3" onchange="ToggleDisabledByClassName('confidant-field')">
+            <label asp-for="IsConfidantCharacter" class="m-2 pb-2">Is Confidant Character</label>
+            </input>
+            <div class="form-group">
+                <label asp-for="ConfidantName" class="form-label">Confidant</label>
+                <select asp-for="ConfidantName" class="form-control confidant-field" disabled="@(!Model.IsConfidantCharacter ? "disabled" : null)">
+                    <option default>N/A</option>
+                    @foreach(var confidant in Model.Confidants)
+                    {
+                        <option>@confidant.Name</option>
+                    }
+                </select>
+                <span class="text-danger" asp-validation-for="ConfidantName"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row m-4">
+        <div class="col-1">
+            <input type="submit" class="form-control btn btn-primary" value="Add">
+        </div>
+    </div>
+
+    <datalist id="personaList">
+        <option value="" default/>
+        @foreach(var persona in Model.Personas)
+        {
+            <option value="@persona.Name"/>
+        }
+    </datalist>
+
+    <script>
+        function ToggleDisabledByClassName(className)
+        {
+            Array.from(document.getElementsByClassName(className)).forEach((item)=>{item.disabled = !item.disabled})
+        }
+    </script>
+</form>
+
+<!-- Datalist for Personas -->

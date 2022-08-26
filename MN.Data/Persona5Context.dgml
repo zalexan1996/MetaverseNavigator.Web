@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+<Node Id="IModel" Label="Persona5Context" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot" PropertyAccessMode="PropertyAccessMode.Default" ProductVersion="6.0.8" Annotations="BaseTypeDiscoveryConvention:DerivedTypes: System.Collections.Generic.Dictionary`2[System.Type,System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.IConventionEntityType]]
+Relational:MaxIdentifierLength: 128
+RelationshipDiscoveryConvention:InverseNavigationCandidates: System.Collections.Generic.Dictionary`2[System.Type,System.Collections.Generic.SortedSet`1[System.Type]]
+SqlServer:ValueGenerationStrategy: IdentityColumn" Category="Model" Group="Expanded" />
+<Node Id = "Arcana" Label="Arcana" Name="Arcana" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: Arcanas
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "BattleCharacter" Label="BattleCharacter" Name="BattleCharacter" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: BattleCharacters
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "Arcana.Id" Label="Id (int)" Name="Id" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "Arcana.Name" Label="Name (string)" Name="Name" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Confidant" Label="Confidant" Name="Confidant" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: Confidants
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "BattleCharacter.Id" Label="Id (int)" Name="Id" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "BattleCharacter.AwakenedPersona" Label="AwakenedPersona (1)" Name="AwakenedPersona" Category="Navigation Property" Type="Persona"  Field="" Dependent="" Principal="Persona" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "BattleCharacter.BasePersona" Label="BasePersona (1)" Name="BasePersona" Category="Navigation Property" Type="Persona"  Field="" Dependent="" Principal="Persona" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "BattleCharacter.Confidant" Label="Confidant (1)" Name="Confidant" Category="Navigation Property" Type="Confidant"  Field="" Dependent="" Principal="Confidant" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "BattleCharacter.GameCharacter" Label="GameCharacter (1)" Name="GameCharacter" Category="Navigation Property" Type="GameCharacter"  Field="" Dependent="" Principal="GameCharacter" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "BattleCharacter.MeleeWeaponType" Label="MeleeWeaponType (1)" Name="MeleeWeaponType" Category="Navigation Property" Type="MeleeWeaponType"  Field="" Dependent="" Principal="MeleeWeaponType" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "BattleCharacter.RangedWeaponType" Label="RangedWeaponType (1)" Name="RangedWeaponType" Category="Navigation Property" Type="RangedWeaponType"  Field="" Dependent="" Principal="RangedWeaponType" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "BattleCharacter.AwakenedPersonaId" Label="AwakenedPersonaId (int)" Name="AwakenedPersonaId" Category="Property Foreign" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "BattleCharacter.BasePersonaId" Label="BasePersonaId (int)" Name="BasePersonaId" Category="Property Foreign" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "BattleCharacter.Codename" Label="Codename (string)" Name="Codename" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "BattleCharacter.ConfidantId" Label="ConfidantId (int)" Name="ConfidantId" Category="Property Foreign" Type="int" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="True" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "BattleCharacter.GameCharacterId" Label="GameCharacterId (int)" Name="GameCharacterId" Category="Property Foreign" Type="int" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="True" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "BattleCharacter.MeleeWeaponTypeId" Label="MeleeWeaponTypeId (int)" Name="MeleeWeaponTypeId" Category="Property Foreign" Type="int" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="True" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "BattleCharacter.RangedWeaponTypeId" Label="RangedWeaponTypeId (int)" Name="RangedWeaponTypeId" Category="Property Foreign" Type="int" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="True" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "ConfidantBenefit" Label="ConfidantBenefit" Name="ConfidantBenefit" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: ConfidantBenefits
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "Confidant.Id" Label="Id (int)" Name="Id" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "Confidant.Arcana" Label="Arcana (1)" Name="Arcana" Category="Navigation Property" Type="Arcana"  Field="" Dependent="" Principal="Arcana" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Confidant.Character" Label="Character (1)" Name="Character" Category="Navigation Property" Type="GameCharacter"  Field="" Dependent="" Principal="GameCharacter" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Confidant.ArcanaId" Label="ArcanaId (int)" Name="ArcanaId" Category="Property Foreign" Type="int" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="True" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Confidant.CharacterId" Label="CharacterId (int)" Name="CharacterId" Category="Property Foreign" Type="int" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="True" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Confidant.Name" Label="Name (string)" Name="Name" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "ConfidantGift" Label="ConfidantGift" Name="ConfidantGift" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: ConfidantGifts
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "ConfidantBenefit.Id" Label="Id (int)" Name="Id" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "ConfidantBenefit.Confidant" Label="Confidant (1)" Name="Confidant" Category="Navigation Property" Type="Confidant"  Field="" Dependent="" Principal="Confidant" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "ConfidantBenefit.AbilityName" Label="AbilityName (string)" Name="AbilityName" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "ConfidantBenefit.ConfidantId" Label="ConfidantId (int)" Name="ConfidantId" Category="Property Foreign" Type="int" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="True" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "ConfidantBenefit.Description" Label="Description (string)" Name="Description" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "ConfidantBenefit.RankUnlocked" Label="RankUnlocked (int)" Name="RankUnlocked" Category="Property Required" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "ConfidantResponses" Label="ConfidantResponses" Name="ConfidantResponses" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: ConfidantResponses
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "ConfidantGift.Id" Label="Id (int)" Name="Id" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "ConfidantGift.Confidant" Label="Confidant (1)" Name="Confidant" Category="Navigation Property" Type="Confidant"  Field="" Dependent="" Principal="Confidant" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "ConfidantGift.GameItem" Label="GameItem (1)" Name="GameItem" Category="Navigation Property" Type="GameItem"  Field="" Dependent="" Principal="GameItem" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "ConfidantGift.ConfidantId" Label="ConfidantId (int)" Name="ConfidantId" Category="Property Foreign" Type="int" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="True" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "ConfidantGift.GameItemId" Label="GameItemId (int)" Name="GameItemId" Category="Property Foreign" Type="int" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="True" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "ConfidantGift.GiftScore" Label="GiftScore (int)" Name="GiftScore" Category="Property Required" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "GameCharacter" Label="GameCharacter" Name="GameCharacter" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: GameCharacters
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "ConfidantResponses.Id" Label="Id (int)" Name="Id" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "ConfidantResponses.Confidant" Label="Confidant (1)" Name="Confidant" Category="Navigation Property" Type="Confidant"  Field="" Dependent="" Principal="Confidant" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "ConfidantResponses.BoostAmount" Label="BoostAmount (int)" Name="BoostAmount" Category="Property Required" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "ConfidantResponses.ConfidantId" Label="ConfidantId (int)" Name="ConfidantId" Category="Property Foreign" Type="int" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="True" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "ConfidantResponses.ResponseOrder" Label="ResponseOrder (int)" Name="ResponseOrder" Category="Property Required" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "ConfidantResponses.ResponseText" Label="ResponseText (string)" Name="ResponseText" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "GameItem" Label="GameItem" Name="GameItem" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: GameItems
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "GameCharacter.Id" Label="Id (int)" Name="Id" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "GameCharacter.Age" Label="Age (int)" Name="Age" Category="Property Required" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "GameCharacter.Name" Label="Name (string)" Name="Name" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "GameCharacter.Occupation" Label="Occupation (string)" Name="Occupation" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "MeleeWeapon" Label="MeleeWeapon" Name="MeleeWeapon" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: MeleeWeapons
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "GameItem.Id" Label="Id (int)" Name="Id" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "GameItem.Name" Label="Name (string)" Name="Name" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "MeleeWeaponType" Label="MeleeWeaponType" Name="MeleeWeaponType" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: MeleeWeaponTypes
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "MeleeWeapon.Id" Label="Id (int)" Name="Id" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "MeleeWeapon.MeleeWeaponType" Label="MeleeWeaponType (1)" Name="MeleeWeaponType" Category="Navigation Property" Type="MeleeWeaponType"  Field="" Dependent="" Principal="MeleeWeaponType" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "MeleeWeapon.Accuracy" Label="Accuracy (int)" Name="Accuracy" Category="Property Required" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "MeleeWeapon.Attack" Label="Attack (int)" Name="Attack" Category="Property Required" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "MeleeWeapon.Effect" Label="Effect (string)" Name="Effect" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "MeleeWeapon.MeleeWeaponTypeId" Label="MeleeWeaponTypeId (int)" Name="MeleeWeaponTypeId" Category="Property Foreign" Type="int" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="True" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "MeleeWeapon.Name" Label="Name (string)" Name="Name" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "MeleeWeapon.Price" Label="Price (int)" Name="Price" Category="Property Required" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Persona" Label="Persona" Name="Persona" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: Personas
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "MeleeWeaponType.Id" Label="Id (int)" Name="Id" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "MeleeWeaponType.Name" Label="Name (string)" Name="Name" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "RangedWeapon" Label="RangedWeapon" Name="RangedWeapon" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: RangedWeapons
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "Persona.Id" Label="Id (int)" Name="Id" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "Persona.Arcana" Label="Arcana (1)" Name="Arcana" Category="Navigation Property" Type="Arcana"  Field="" Dependent="" Principal="Arcana" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Persona.ArcanaId" Label="ArcanaId (int)" Name="ArcanaId" Category="Property Foreign" Type="int" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="True" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Persona.Name" Label="Name (string)" Name="Name" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "RangedWeaponType" Label="RangedWeaponType" Name="RangedWeaponType" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="Relational:TableName: RangedWeaponTypes
+RelationshipDiscoveryConvention:NavigationCandidates: System.Collections.Immutable.ImmutableSortedDictionary`2[System.Reflection.PropertyInfo,System.ValueTuple`2[System.Type,System.Nullable`1[System.Boolean]]]" Category="EntityType" Group="Expanded" />
+<Node Id = "RangedWeapon.Id" Label="Id (int)" Name="Id" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "RangedWeapon.RangedWeaponType" Label="RangedWeaponType (1)" Name="RangedWeaponType" Category="Navigation Property" Type="RangedWeaponType"  Field="" Dependent="" Principal="RangedWeaponType" Inverse="" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "RangedWeapon.Accuracy" Label="Accuracy (int)" Name="Accuracy" Category="Property Required" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "RangedWeapon.Attack" Label="Attack (int)" Name="Attack" Category="Property Required" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "RangedWeapon.Effect" Label="Effect (string)" Name="Effect" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "RangedWeapon.Name" Label="Name (string)" Name="Name" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "RangedWeapon.Price" Label="Price (int)" Name="Price" Category="Property Required" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "RangedWeapon.RangedWeaponTypeId" Label="RangedWeaponTypeId (int)" Name="RangedWeaponTypeId" Category="Property Foreign" Type="int" MaxLength="None" Field="nofield" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="True" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "RangedWeapon.Rounds" Label="Rounds (int)" Name="Rounds" Category="Property Required" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "RangedWeaponType" Label="RangedWeaponType" Name="RangedWeaponType" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="" Category="EntityType" Group="Expanded" />
+<Node Id = "RangedWeaponType.Id" Label="Id (int)" Name="Id" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="SqlServer:ValueGenerationStrategy: IdentityColumn" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "RangedWeaponType.Name" Label="Name (string)" Name="Name" Category="Property Required" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+  </Nodes>
+  <Links>
+<Link Source = "IModel" Target="Arcana" Category="Contains" />
+<Link Source = "IModel" Target="BattleCharacter" Category="Contains" />
+<Link Source = "Arcana" Target="Arcana.Id" Category="Contains" />
+<Link Source = "Arcana" Target="Arcana.Name" Category="Contains" />
+<Link Source = "IModel" Target="Confidant" Category="Contains" />
+<Link Source = "BattleCharacter" Target="BattleCharacter.AwakenedPersona" Category="Contains" />
+<Link Source = "BattleCharacter" Target="BattleCharacter.BasePersona" Category="Contains" />
+<Link Source = "BattleCharacter" Target="BattleCharacter.Confidant" Category="Contains" />
+<Link Source = "BattleCharacter" Target="BattleCharacter.GameCharacter" Category="Contains" />
+<Link Source = "BattleCharacter" Target="BattleCharacter.MeleeWeaponType" Category="Contains" />
+<Link Source = "BattleCharacter" Target="BattleCharacter.RangedWeaponType" Category="Contains" />
+<Link Source = "BattleCharacter" Target="BattleCharacter.Id" Category="Contains" />
+<Link Source="BattleCharacter" Target="Persona" From="BattleCharacter.AwakenedPersonaId" To="Persona.Id" Name="BattleCharacter -> Persona" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="BattleCharacter" Target="Persona" From="BattleCharacter.BasePersonaId" To="Persona.Id" Name="BattleCharacter -> Persona" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="BattleCharacter" Target="Confidant" From="BattleCharacter.ConfidantId" To="Confidant.Id" Name="BattleCharacter -> Confidant" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="BattleCharacter" Target="GameCharacter" From="BattleCharacter.GameCharacterId" To="GameCharacter.Id" Name="BattleCharacter -> GameCharacter" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="BattleCharacter" Target="MeleeWeaponType" From="BattleCharacter.MeleeWeaponTypeId" To="MeleeWeaponType.Id" Name="BattleCharacter -> MeleeWeaponType" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="BattleCharacter" Target="RangedWeaponType" From="BattleCharacter.RangedWeaponTypeId" To="RangedWeaponType.Id" Name="BattleCharacter -> RangedWeaponType" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source = "BattleCharacter" Target="BattleCharacter.AwakenedPersonaId" Category="Contains" />
+<Link Source = "BattleCharacter" Target="BattleCharacter.BasePersonaId" Category="Contains" />
+<Link Source = "BattleCharacter" Target="BattleCharacter.Codename" Category="Contains" />
+<Link Source = "BattleCharacter" Target="BattleCharacter.ConfidantId" Category="Contains" />
+<Link Source = "BattleCharacter" Target="BattleCharacter.GameCharacterId" Category="Contains" />
+<Link Source = "BattleCharacter" Target="BattleCharacter.MeleeWeaponTypeId" Category="Contains" />
+<Link Source = "BattleCharacter" Target="BattleCharacter.RangedWeaponTypeId" Category="Contains" />
+<Link Source = "IModel" Target="ConfidantBenefit" Category="Contains" />
+<Link Source = "Confidant" Target="Confidant.Arcana" Category="Contains" />
+<Link Source = "Confidant" Target="Confidant.Character" Category="Contains" />
+<Link Source = "Confidant" Target="Confidant.Id" Category="Contains" />
+<Link Source="Confidant" Target="Arcana" From="Confidant.ArcanaId" To="Arcana.Id" Name="Confidant -> Arcana" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="Confidant" Target="GameCharacter" From="Confidant.CharacterId" To="GameCharacter.Id" Name="Confidant -> GameCharacter" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source = "Confidant" Target="Confidant.ArcanaId" Category="Contains" />
+<Link Source = "Confidant" Target="Confidant.CharacterId" Category="Contains" />
+<Link Source = "Confidant" Target="Confidant.Name" Category="Contains" />
+<Link Source = "IModel" Target="ConfidantGift" Category="Contains" />
+<Link Source = "ConfidantBenefit" Target="ConfidantBenefit.Confidant" Category="Contains" />
+<Link Source = "ConfidantBenefit" Target="ConfidantBenefit.Id" Category="Contains" />
+<Link Source="ConfidantBenefit" Target="Confidant" From="ConfidantBenefit.ConfidantId" To="Confidant.Id" Name="ConfidantBenefit -> Confidant" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source = "ConfidantBenefit" Target="ConfidantBenefit.AbilityName" Category="Contains" />
+<Link Source = "ConfidantBenefit" Target="ConfidantBenefit.ConfidantId" Category="Contains" />
+<Link Source = "ConfidantBenefit" Target="ConfidantBenefit.Description" Category="Contains" />
+<Link Source = "ConfidantBenefit" Target="ConfidantBenefit.RankUnlocked" Category="Contains" />
+<Link Source = "IModel" Target="ConfidantResponses" Category="Contains" />
+<Link Source = "ConfidantGift" Target="ConfidantGift.Confidant" Category="Contains" />
+<Link Source = "ConfidantGift" Target="ConfidantGift.GameItem" Category="Contains" />
+<Link Source = "ConfidantGift" Target="ConfidantGift.Id" Category="Contains" />
+<Link Source="ConfidantGift" Target="Confidant" From="ConfidantGift.ConfidantId" To="Confidant.Id" Name="ConfidantGift -> Confidant" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="ConfidantGift" Target="GameItem" From="ConfidantGift.GameItemId" To="GameItem.Id" Name="ConfidantGift -> GameItem" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source = "ConfidantGift" Target="ConfidantGift.ConfidantId" Category="Contains" />
+<Link Source = "ConfidantGift" Target="ConfidantGift.GameItemId" Category="Contains" />
+<Link Source = "ConfidantGift" Target="ConfidantGift.GiftScore" Category="Contains" />
+<Link Source = "IModel" Target="GameCharacter" Category="Contains" />
+<Link Source = "ConfidantResponses" Target="ConfidantResponses.Confidant" Category="Contains" />
+<Link Source = "ConfidantResponses" Target="ConfidantResponses.Id" Category="Contains" />
+<Link Source="ConfidantResponses" Target="Confidant" From="ConfidantResponses.ConfidantId" To="Confidant.Id" Name="ConfidantResponses -> Confidant" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source = "ConfidantResponses" Target="ConfidantResponses.BoostAmount" Category="Contains" />
+<Link Source = "ConfidantResponses" Target="ConfidantResponses.ConfidantId" Category="Contains" />
+<Link Source = "ConfidantResponses" Target="ConfidantResponses.ResponseOrder" Category="Contains" />
+<Link Source = "ConfidantResponses" Target="ConfidantResponses.ResponseText" Category="Contains" />
+<Link Source = "IModel" Target="GameItem" Category="Contains" />
+<Link Source = "GameCharacter" Target="GameCharacter.Id" Category="Contains" />
+<Link Source = "GameCharacter" Target="GameCharacter.Age" Category="Contains" />
+<Link Source = "GameCharacter" Target="GameCharacter.Name" Category="Contains" />
+<Link Source = "GameCharacter" Target="GameCharacter.Occupation" Category="Contains" />
+<Link Source = "IModel" Target="MeleeWeapon" Category="Contains" />
+<Link Source = "GameItem" Target="GameItem.Id" Category="Contains" />
+<Link Source = "GameItem" Target="GameItem.Name" Category="Contains" />
+<Link Source = "IModel" Target="MeleeWeaponType" Category="Contains" />
+<Link Source = "MeleeWeapon" Target="MeleeWeapon.MeleeWeaponType" Category="Contains" />
+<Link Source = "MeleeWeapon" Target="MeleeWeapon.Id" Category="Contains" />
+<Link Source="MeleeWeapon" Target="MeleeWeaponType" From="MeleeWeapon.MeleeWeaponTypeId" To="MeleeWeaponType.Id" Name="MeleeWeapon -> MeleeWeaponType" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source = "MeleeWeapon" Target="MeleeWeapon.Accuracy" Category="Contains" />
+<Link Source = "MeleeWeapon" Target="MeleeWeapon.Attack" Category="Contains" />
+<Link Source = "MeleeWeapon" Target="MeleeWeapon.Effect" Category="Contains" />
+<Link Source = "MeleeWeapon" Target="MeleeWeapon.MeleeWeaponTypeId" Category="Contains" />
+<Link Source = "MeleeWeapon" Target="MeleeWeapon.Name" Category="Contains" />
+<Link Source = "MeleeWeapon" Target="MeleeWeapon.Price" Category="Contains" />
+<Link Source = "IModel" Target="Persona" Category="Contains" />
+<Link Source = "MeleeWeaponType" Target="MeleeWeaponType.Id" Category="Contains" />
+<Link Source = "MeleeWeaponType" Target="MeleeWeaponType.Name" Category="Contains" />
+<Link Source = "IModel" Target="RangedWeapon" Category="Contains" />
+<Link Source = "Persona" Target="Persona.Arcana" Category="Contains" />
+<Link Source = "Persona" Target="Persona.Id" Category="Contains" />
+<Link Source="Persona" Target="Arcana" From="Persona.ArcanaId" To="Arcana.Id" Name="Persona -> Arcana" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source = "Persona" Target="Persona.ArcanaId" Category="Contains" />
+<Link Source = "Persona" Target="Persona.Name" Category="Contains" />
+<Link Source = "IModel" Target="RangedWeaponType" Category="Contains" />
+<Link Source = "RangedWeapon" Target="RangedWeapon.RangedWeaponType" Category="Contains" />
+<Link Source = "RangedWeapon" Target="RangedWeapon.Id" Category="Contains" />
+<Link Source="RangedWeapon" Target="RangedWeaponType" From="RangedWeapon.RangedWeaponTypeId" To="RangedWeaponType.Id" Name="RangedWeapon -> RangedWeaponType" Annotations="" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source = "RangedWeapon" Target="RangedWeapon.Accuracy" Category="Contains" />
+<Link Source = "RangedWeapon" Target="RangedWeapon.Attack" Category="Contains" />
+<Link Source = "RangedWeapon" Target="RangedWeapon.Effect" Category="Contains" />
+<Link Source = "RangedWeapon" Target="RangedWeapon.Name" Category="Contains" />
+<Link Source = "RangedWeapon" Target="RangedWeapon.Price" Category="Contains" />
+<Link Source = "RangedWeapon" Target="RangedWeapon.RangedWeaponTypeId" Category="Contains" />
+<Link Source = "RangedWeapon" Target="RangedWeapon.Rounds" Category="Contains" />
+<Link Source = "IModel" Target="RangedWeaponType" Category="Contains" />
+<Link Source = "RangedWeaponType" Target="RangedWeaponType.Id" Category="Contains" />
+<Link Source = "RangedWeaponType" Target="RangedWeaponType.Name" Category="Contains" />
+  </Links>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="EntityType" ValueLabel="True">
+      <Condition Expression="HasCategory('EntityType')" />
+      <Setter Property="Background" Value="#FFC0C0C0" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Primary" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Primary')" />
+      <Setter Property="Background" Value="#FF008000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Optional" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Optional')" />
+      <Setter Property="Background" Value="#FF808040" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Foreign" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Foreign')" />
+      <Setter Property="Background" Value="#FF8080FF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property Required" ValueLabel="True">
+      <Condition Expression="HasCategory('Property Required')" />
+      <Setter Property="Background" Value="#FFC0A000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Navigation Property" ValueLabel="True">
+      <Condition Expression="HasCategory('Navigation Property')" />
+      <Setter Property="Background" Value="#FF990000" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Navigation Collection" ValueLabel="True">
+      <Condition Expression="HasCategory('Navigation Collection')" />
+      <Setter Property="Background" Value="#FFFF3232" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Model" ValueLabel="True">
+      <Condition Expression="HasCategory('Model')" />
+      <Setter Property="Background" Value="#FFFFFFFF" />
+    </Style>
+  </Styles>
+  <Properties>
+    <Property Id="Name" Group="Model Properties" DataType="System.String" />
+    <Property Id="Field"  Description="Backing field" Group="Model Properties" DataType="System.String" />
+    <Property Id="Type"  Description="CLR data type" Group="Model Properties" DataType="System.String" />
+    <Property Id="To" Description="Source property" Group="Model Properties" DataType="System.String" />
+    <Property Id="From" Description="Target property" Group="Model Properties" DataType="System.String" />
+    <Property Id="Dependent" Description="Dependent entity" Group="Model Properties" DataType="System.String" />
+    <Property Id="Inverse" Description="Inverse entity" Group="Model Properties" DataType="System.String" />
+    <Property Id="Principal" Description="Principal entity" Group="Model Properties" DataType="System.String" />    
+    <Property Id="Annotations" Description="Annotations" Group="Model Properties" DataType="System.String" />
+    <Property Id="BaseClass"  Description="Base class" Group="Model Properties" DataType="System.String" />
+    <Property Id="ChangeTrackingStrategy" Description="Change tracking strategy" Group="Model Properties" DataType="System.String" />
+    <Property Id="IsUnique" Group="Model Properties" DataType="System.Boolean" />
+    <Property Id="IsAbstract" Group="Model Properties" DataType="System.Boolean" />
+    <Property Id="ProductVersion" Label="Product Version" Description="EF Core product version" Group="Model Properties" DataType="System.String" />
+    <Property Id="IsIndexed" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsRequired" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsPrimaryKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsForeignKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsShadow" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsAlternateKey" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsConcurrencyToken" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsIndexed" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="IsUnicode" Group="Property Flags" DataType="System.Boolean" />
+    <Property Id="ValueGenerated" Group="Property Flags" DataType="System.String" />
+    <Property Id="BeforeSaveBehavior" Group="Property Flags" DataType="System.String" />
+    <Property Id="AfterSaveBehavior" Group="Property Flags" DataType="System.String" />
+    <Property Id="PropertyAccessMode" Group="Property Flags" DataType="System.String" />
+  </Properties>
+</DirectedGraph>

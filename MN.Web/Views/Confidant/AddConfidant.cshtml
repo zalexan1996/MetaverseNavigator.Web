@@ -1,0 +1,21 @@
+<h3>Confidants</h3>
+
+<ul>
+    @foreach(var confidant in ViewData["Confidants"] as List<string>)
+    {
+        <li>Confidant: @confidant</li>
+    }
+</ul>
+
+@if (User.IsInRole("Admin"))
+{
+<form class="form-inline" method="POST" asp-action="AddConfidant" asp-controller="Confidant">
+
+    <div class="form-group my-2">
+        <label>Confidant Name</label>
+        <input class="form-control" type="text" name="confidantName">
+    </div>
+
+    <input type="submit" class="btn btn-secondary my-2" value="Add">
+</form>
+}

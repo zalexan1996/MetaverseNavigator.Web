@@ -1,0 +1,82 @@
+@using MN.Domain;
+
+<div>
+    <h3 class="d-flex justify-content-center">Edit Weapon Types</h3>
+    <div class="d-flex justify-content-around">
+        <table class="align-self-start">
+            <tr>
+                <td>Melee Weapon Type</td>
+                @if (User.IsInRole("Admin"))
+                {
+                    <td>Action</td>
+                }
+            </tr>
+            @foreach(var type in ViewData["MeleeWeaponTypes"] as List<string>)
+            {
+                <tr>
+                    <form asp-action="RemoveMeleeWeaponType" asp-controller="Weapons" method="post">
+                        <input hidden="true" name="type" value="@type">
+                        <td>@type</td>
+                        @if (User.IsInRole("Admin"))
+                        {
+                        <td>
+                            <input type="submit" class="btn btn-danger" value="DELETE">
+                        </td>
+                        }
+                    </form>
+                </tr>
+            }
+            @if (User.IsInRole("Admin"))
+            {
+                <tr>
+                    <form asp-action="AddMeleeWeaponType" asp-controller="Weapons" method="post">
+                        <td>
+                            <input type="text" name="newName">
+                        </td>
+                            <td>
+                                <input type="submit" class="btn btn-success" value="ADD"></input>
+                            </td>
+                    </form>
+                </tr>
+            }
+        </table>
+
+        <table class="align-self-start">
+            <tr>
+                <td>Ranged Weapon Type</td>
+                @if (User.IsInRole("Admin"))
+                {
+                    <td>Action</td>
+                }
+            </tr>
+            @foreach(var type in ViewData["RangedWeaponTypes"] as List<string>)
+            {
+                <tr>
+                    <form asp-action="RemoveRangedWeaponType" asp-controller="Weapons" method="post">
+                        <input hidden="true" name="type" value="@type">
+                        <td>@type</td>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <td>
+                                <input type="submit" class="btn btn-danger" value="DELETE">
+                            </td>
+                        }
+                    </form>
+                </tr>
+            }
+            @if (User.IsInRole("Admin"))
+            {
+                <tr>
+                    <form asp-action="AddRangedWeaponType" asp-controller="Weapons" method="post">
+                        <td>
+                            <input type="text" name="newName">
+                        </td>
+                            <td>
+                                <input type="submit" class="btn btn-success" value="ADD"></input>
+                            </td>
+                    </form>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
